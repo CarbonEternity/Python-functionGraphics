@@ -28,17 +28,35 @@ canvas.create_text(20, 630, text='-300', fill='black')
 canvas.create_text(10, 310, text='0', fill='black')
 canvas.create_text(1030, 310, text='1000', fill='black')
 
-w = 0.0209 #циклич частота
-phi =10    #смещение графика по х
-A =200     #амплитуда
-dy= 310    #смещение графика по у
+label_w = Label(root, text='Циклическая частота')
+label_w.place(x=0, y=10)
+label_phi = Label(root, text='Смещение графика по Х')
+label_phi.place(x=0, y=30)
+label_A = Label(root, text='Амплитуда')
+label_A.place(x=0, y=50)
+label_dy = Label(root, text='Смещение графика по У')
+label_dy.place(x=0, y=70)
+
+entry_w=Entry(root)
+entry_w.place(x=150, y=10)
+entry_phi=Entry(root)
+entry_phi.place(x=150, y=30)
+entry_A=Entry(root)
+entry_A.place(x=150, y=50)
+entry_dy=Entry(root)
+entry_dy.place(x=150, y=70)
+
+# w = 0.0209 #циклич частота
+# phi =10    #смещение графика по х
+# A =200     #амплитуда
+# dy= 310    #смещение графика по у
 
 #список где хранится значение функции
-xy =[]
+'''xy =[]
 for x in range(1000):
     y=math.sin(x*w)
     xy.append(x+phi)
     xy.append(y*A+dy)
-sin_line=canvas.create_line(xy, width=2, fill='blue')
+sin_line=canvas.create_line(xy, width=2, fill='blue')'''
 
 root.mainloop()
