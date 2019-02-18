@@ -52,11 +52,28 @@ entry_dy.place(x=150, y=70)
 # dy= 310    #смещение графика по у
 
 #список где хранится значение функции
-'''xy =[]
-for x in range(1000):
-    y=math.sin(x*w)
-    xy.append(x+phi)
-    xy.append(y*A+dy)
-sin_line=canvas.create_line(xy, width=2, fill='blue')'''
+def sinus(w, phi, A, dy):
+    global sin
+    sin =0
+    xy =[]
+    for x in range(1000):
+        y=math.sin(x*w)
+        xy.append(x+phi)
+        xy.append(y*A+dy)
+    sin = canvas.create_line(xy, width=2, fill='blue')
+
+def clean():
+    canvas.delete(sin)
+
+btn_calc = Button (root, text='Рассчитать')
+btn_calc.bind('<Button-1>', lambda event:sinus(float(entry_w.get()),
+                                               float(entry_phi.get()),
+                                               float(entry_A.get()),
+                                               float(entry_dy.get())))
+btn_calc.place(x=10, y=100)
+
+btn_clean =Button(root, text='Очистить')
+btn_clean.bind('<Button-1>', lambda event: clean())     #левая кнопка мыши
+btn_clean.place(x=100, y=100)
 
 root.mainloop()
